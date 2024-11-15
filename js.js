@@ -207,7 +207,7 @@ const bonus = (salary, percent = 10) => {
      return newArray;
 }
 let bonusAdded = bonus(salary, 100);
-display(bonusAdded)
+// display(bonusAdded)
 
 //////
 
@@ -223,5 +223,127 @@ for(let i = 0; i < 2; i++) {
 
 
 
+// Callback Function
+const output = (e) => {
+     console.log(e);
+}
+const calculator = (p1, p2, callback) => {
+     let sum = p1 + " " + p2;
+     if(callback) {
+          callback(sum);
+     }
+     else {
+          console.log("You can display result");
+     }
+}
 
+// calculator("Jon", "Doe", output);
+
+
+// Callback function
+const paymentSuccess = true;
+const marks = 80;
+const enroll = (callback) => {
+     console.log('Course enrollment is in progress.');
+
+     setTimeout(() => {
+          if(paymentSuccess) {
+               callback();
+          }
+          else {
+               console.log('Payment failed!');
+          }
+     }, 2000);
+}
+const progress = (callback) => {
+     console.log('Course on progress...');
+     setTimeout(() => {
+          if(marks >= 80) {
+               callback();
+          }
+          else {
+               console.log('You could not enough mark to get the certificate');
+          }
+     }, 3000);
+}
+const getCertificate = () => {
+     console.log('Preparing your certificate');
+     setTimeout(() => {
+          console.log('Congrats! You got the certificate');
+     }, 1000);
+}
+// enroll(() => {
+//      progress(getCertificate);
+// });
+
+
+// Promise
+const payment = true;
+const mark = 79;
+
+const Enroll = () => {
+     console.log('Course enrollment is in progress.');
+
+     const promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+               if(payment) {
+                    resolve();
+               }
+               else {
+                    reject('Payment failed!');
+               }
+          }, 2000);
+     });
+     return promise;
+}
+
+const Progress = () => {
+     console.log('Course on progress...');
+     
+     const promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+               if(mark >= 80) {
+                    resolve();
+               }
+               else {
+                    reject('You could not enough mark to get the certificate');
+               }
+          }, 3000);
+     });
+     return promise;
+}
+
+const GetCertificate = () => {
+     console.log('Preparing your certificate');
+     const promise = new Promise((resolve) => {
+          setTimeout(() => {
+               resolve('Congrats! You got the certificate');
+          }, 1000);
+     });
+     return promise;
+}
+
+async function course () {
+     try {
+          await Enroll();
+          await Progress();
+          const message = await GetCertificate();
+          console.log(message)
+     } catch(err) {
+          console.log(err)
+     }
+}
+// course()
+
+// Another way to print
+
+// Enroll()
+//      .then(Progress)
+//      .then(GetCertificate)
+//      .then((value) => {
+//           console.log(value);
+//      })
+//      .catch((err) => {
+//           console.log(err);
+//      })
 
