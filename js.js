@@ -82,6 +82,19 @@ for (const x of tags) {
 }
 // document.getElementById("loop").innerHTML = items;
 
+
+const points = [40, 100, 1, 5, 25, 10];
+document.getElementById("random").innerHTML = points;
+function random() {
+  for (let i = points.length -1; i > 0; i--) {
+    let j = Math.floor(Math.random() * ( i + 1));
+    let k = points[i];
+    points[i] = points[j];
+    points[j] = k;
+  }
+  document.getElementById("random").innerHTML = points;
+}
+
 // Simple Way loop
 tags.forEach(e => {
      items = "<div>" + e + "</div>"
@@ -137,6 +150,11 @@ const evenOdd = () => {
 //      };
 // })();
 
+// Array Sort
+// let sorted = [120, 100, 500, 800, 51, 580, 50];
+// sorted.sort(function (a, b) {return a - b});
+// console.log(sorted)
+
 const printing = (x, y) => {
      let Ar = [];
      for(i = 0; i < x; i++) {
@@ -170,6 +188,10 @@ const printing = (x, y) => {
 // y = bonus(x, 10)
 // y => [132,110,550,880]
 
+
+function display(e) {
+     console.log(e);
+}
 let salary = [120, 100, 500, 800, 50, 580, 50];
 const bonus = (salary, percent = 10) => {
      let newArray = [];
@@ -185,7 +207,21 @@ const bonus = (salary, percent = 10) => {
      return newArray;
 }
 let bonusAdded = bonus(salary, 100);
-console.log(bonusAdded)
+display(bonusAdded)
+
+//////
+
+const Names = ["jon", "dow"]
+const TwoDArray = [[],[]];
+
+for(let i = 0; i < 2; i++) {
+     for(let j = 0; j < 2; j++) {
+          TwoDArray[i][j] = 1;
+     }
+}
+// console.log(TwoDArray)
+
+
 
 
 
