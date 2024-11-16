@@ -1,14 +1,14 @@
-let time = document.getElementById("display-time");
-let date = document.getElementById("display-date");
 
+// Ascending 0123... Descending 987654...
 let todaysDate = new Date();
 let getDate = todaysDate.getDate();
 let getMonth = todaysDate.getMonth() + 1;
 let getFullYear = todaysDate.getFullYear();
-
 let getHours = todaysDate.getHours();
 let getMinutes = todaysDate.getMinutes();
 let getSeconds = todaysDate.getSeconds();
+let time = document.getElementById("display-time");
+let date = document.getElementById("display-date");
 
 const myFunction = (e) => {
      if(e == "date") {
@@ -18,13 +18,6 @@ const myFunction = (e) => {
           time.innerHTML = getHours - 12 + " : " + getMinutes + " : " + getSeconds;
      }
 };
-
-const a = [];
-for(let i = 1; i <= 10; i++) {
-     i++;
-     a.push(i);
-};
-// console.log(a);
 
 // Object
 const human = {
@@ -83,6 +76,7 @@ for (const x of tags) {
 // document.getElementById("loop").innerHTML = items;
 
 
+// Random numbers
 const points = [40, 100, 1, 5, 25, 10];
 document.getElementById("random").innerHTML = points;
 function random() {
@@ -119,41 +113,20 @@ const riversPrint = () => {
 const evenOdd = () => {
      let myArray = [];
      let n = 10;
-     for(i = 0; i < n; i++) {
+     for(let i = 0; i < n; i++) {
           myArray[i] = i + 1;
      }
-     for(i = 0; i < 10; i++) {
+     for(let i = 0; i < 10; i++) {
           let number = myArray[i] % 2;
           if(number == 0) {
-               console.log(myArray[i] + " Even Number")
+               console.log(myArray[i] + " Even Number");
           } else {
-               console.log(myArray[i] + " Odd Number")
+               console.log(myArray[i] + " Odd Number");
           };
      };
 }
-// evenOdd()
+// evenOdd();
 
- // Self calling function
-// (function Name () {
-//      let myArray = [];
-//      let n = 10;
-//      for(i = 0; i < n; i++) {
-//           myArray[i] = i + 1;
-//      }
-//      for(i = 0; i < 10; i++) {
-//           let number = myArray[i] % 2;
-//           if(number == 0) {
-//                console.log(myArray[i] + " Even Number")
-//           } else {
-//                console.log(myArray[i] + " Odd Number")
-//           };
-//      };
-// })();
-
-// Array Sort
-// let sorted = [120, 100, 500, 800, 51, 580, 50];
-// sorted.sort(function (a, b) {return a - b});
-// console.log(sorted)
 
 const printing = (x, y) => {
      let Ar = [];
@@ -183,10 +156,6 @@ const printing = (x, y) => {
 // printing(numbers, whatYouWant);
 // printing(11, "E");
 
-// Ascending 0123... Descending 987654...
-// x = [120,100,500,800]
-// y = bonus(x, 10)
-// y => [132,110,550,880]
 
 
 function display(e) {
@@ -206,144 +175,7 @@ const bonus = (salary, percent = 10) => {
      }
      return newArray;
 }
+
 let bonusAdded = bonus(salary, 100);
 // display(bonusAdded)
-
-//////
-
-const Names = ["jon", "dow"]
-const TwoDArray = [[],[]];
-
-for(let i = 0; i < 2; i++) {
-     for(let j = 0; j < 2; j++) {
-          TwoDArray[i][j] = 1;
-     }
-}
-// console.log(TwoDArray)
-
-
-
-// Callback Function
-const output = (e) => {
-     console.log(e);
-}
-const calculator = (p1, p2, callback) => {
-     let sum = p1 + " " + p2;
-     if(callback) {
-          callback(sum);
-     }
-     else {
-          console.log("You can display result");
-     }
-}
-
-// calculator("Jon", "Doe", output);
-
-
-// Callback function
-const paymentSuccess = true;
-const marks = 80;
-const enroll = (callback) => {
-     console.log('Course enrollment is in progress.');
-
-     setTimeout(() => {
-          if(paymentSuccess) {
-               callback();
-          }
-          else {
-               console.log('Payment failed!');
-          }
-     }, 2000);
-}
-const progress = (callback) => {
-     console.log('Course on progress...');
-     setTimeout(() => {
-          if(marks >= 80) {
-               callback();
-          }
-          else {
-               console.log('You could not enough mark to get the certificate');
-          }
-     }, 3000);
-}
-const getCertificate = () => {
-     console.log('Preparing your certificate');
-     setTimeout(() => {
-          console.log('Congrats! You got the certificate');
-     }, 1000);
-}
-// enroll(() => {
-//      progress(getCertificate);
-// });
-
-
-// Promise
-const payment = true;
-const mark = 79;
-
-const Enroll = () => {
-     console.log('Course enrollment is in progress.');
-
-     const promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-               if(payment) {
-                    resolve();
-               }
-               else {
-                    reject('Payment failed!');
-               }
-          }, 2000);
-     });
-     return promise;
-}
-
-const Progress = () => {
-     console.log('Course on progress...');
-     
-     const promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-               if(mark >= 80) {
-                    resolve();
-               }
-               else {
-                    reject('You could not enough mark to get the certificate');
-               }
-          }, 3000);
-     });
-     return promise;
-}
-
-const GetCertificate = () => {
-     console.log('Preparing your certificate');
-     const promise = new Promise((resolve) => {
-          setTimeout(() => {
-               resolve('Congrats! You got the certificate');
-          }, 1000);
-     });
-     return promise;
-}
-
-async function course () {
-     try {
-          await Enroll();
-          await Progress();
-          const message = await GetCertificate();
-          console.log(message)
-     } catch(err) {
-          console.log(err)
-     }
-}
-// course()
-
-// Another way to print
-
-// Enroll()
-//      .then(Progress)
-//      .then(GetCertificate)
-//      .then((value) => {
-//           console.log(value);
-//      })
-//      .catch((err) => {
-//           console.log(err);
-//      })
 
