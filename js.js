@@ -75,6 +75,12 @@ for (const x of tags) {
 }
 // document.getElementById("loop").innerHTML = items;
 
+// Simple Way loop
+tags.forEach(e => {
+     items = "<div>" + e + "</div>"
+     document.getElementById("loop").innerHTML += items;
+});
+
 
 // Random numbers
 const points = [40, 100, 1, 5, 25, 10];
@@ -88,12 +94,6 @@ function random() {
   }
   document.getElementById("random").innerHTML = points;
 }
-
-// Simple Way loop
-tags.forEach(e => {
-     items = "<div>" + e + "</div>"
-     document.getElementById("loop").innerHTML += items;
-});
 
 const riversPrint = () => {
      let myArray = [];
@@ -163,7 +163,7 @@ function display(e) {
 }
 let salary = [120, 100, 500, 800, 50, 580, 50];
 const bonus = (salary, percent = 10) => {
-     let newArray = [];
+     const newArray = [];
      if(percent <= 100 && percent > -1) {
           for(i = 0; i < salary.length; i++) {
                salary[i] += salary[i] * percent / 100;
@@ -176,6 +176,5 @@ const bonus = (salary, percent = 10) => {
      return newArray;
 }
 
-let bonusAdded = bonus(salary, 100);
+let bonusAdded = bonus(salary, 55);
 // display(bonusAdded)
-

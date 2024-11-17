@@ -57,7 +57,6 @@ async function course () {
 // course()
 
 // Another way to print
-
 // Enroll()
 //      .then(Progress)
 //      .then(GetCertificate)
