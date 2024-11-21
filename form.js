@@ -28,22 +28,27 @@ const addNew = () => {
      const newData = [];
      formData[0] = document.getElementById("first").value;
      formData[1] = document.getElementById("last").value;
+     let error = document.getElementById("error");
      let display = document.getElementById("display");
 
      if(formData[0] == "" && formData[1] == "") {
-          console.log("All filed has missing!");
+          error.innerHTML = "All filed has missing!";
      }
      else if(formData[0] == "") {
-          console.log("Missing firstName");
+          error.innerHTML = "Enter your first name";
      }
      else if(formData[1] == "") {
-          console.log("Missing lastName");
+          error.innerHTML = "Enter your last name";
      }
      else {
-          for(let i = 0; i < formData.length; i++) {
+          error.innerHTML = "";
+          document.getElementById("first").value = "";
+          document.getElementById("last").value = "";
+          for(let i = 0; i <= 0; i++) {
                newData[i] = formData;
+               display.innerHTML = `<li>${newData[0] + " " + newData[1]}<li>`;
+               console.log(newData)
           }
      }
-     // display.innerHTML = `<span>${newData[]}</span>`
-     console.log(newData)
+     // console.log(newData.length)
 }

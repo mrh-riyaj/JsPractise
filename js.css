@@ -8,7 +8,6 @@
      display: flex;
      align-items: center;
      justify-content: center;
-
 }
 .container {
      padding: 20px;
@@ -57,4 +56,32 @@ input {
      border-radius: 5px;
      display: inline-block;
      background-color: #000000;
+}
+
+.form-container {
+     display: flex;
+     justify-content: center;
+}
+.content {
+     padding: 20px;
+     min-width: 500px;
+     border-radius: 5px;
+     border-top: solid 5px #000;
+     border-left: solid 1px #000;
+     border-right: solid 1px #000;
+     border-bottom: solid 1px #000;
+}
+.error {
+     color: red;
+     font-weight: 600;
+}
+li {
+     list-style: auto;
+     text-align: left;
+}
+
+.cl-test {
+     color: #fff;
+     background-color: #000;
+     border-bottom: 1px solid #fff;
 }
